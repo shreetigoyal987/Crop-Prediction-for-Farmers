@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Prediction Model</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Top Right Navbar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">Prediction</a></li>
+    </ul>
+  </nav>
+
+  <!-- Welcome Section -->
+  <div class="welcome-section">
+    <h1>Welcome to Crop Prediction System</h1>
+    <p>Enter your details here</p>
+    <div class="arrow">&#8595;</div>
+  </div>
+
+  <!-- Input Form Section -->
+  <div class="form-container">
+    <form action="{{ url_for('predict') }}" method="post">
+      <label for="Nitrogen">Nitrogen</label>
+      <input type="text" name="Nitrogen" placeholder="Enter Nitrogen value" required />
+
+      <label for="Phosphorus">Phosphorus</label>
+      <input type="text" name="Phosphorus" placeholder="Enter Phosphorus value" required />
+
+      <label for="Potassium">Potassium</label>
+      <input type="text" name="Potassium" placeholder="Enter Potassium value" required />
+
+      <label for="temperature">Temperature</label>
+      <input type="text" name="temperature" placeholder="Enter Temperature" required />
+
+      <label for="humidity">Humidity</label>
+      <input type="text" name="humidity" placeholder="Enter Humidity" required />
+
+      <label for="pH">pH</label>
+      <input type="text" name="pH" placeholder="Enter pH value" required />
+
+      <label for="rainfall">Rainfall</label>
+      <input type="text" name="rainfall" placeholder="Enter Rainfall" required />
+
+      <button type="submit">Predict</button>
+    </form>
+
+    <h2 id="predi">{{ prediction_text }}</h2>
+  </div>
+
+</body>
+</html>
